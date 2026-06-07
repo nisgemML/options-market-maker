@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "options-market-maker"
+version = "0.1.0"
+description = "Options pricing, hedging, and market-making engine with full backtest"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "numpy>=1.26",
+    "scipy>=1.11",
+    "pandas>=2.1",
+    "matplotlib>=3.8",
+    "numba>=0.59",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+    "pytest-cov>=4.1",
+    "hypothesis>=6.92",
+    "black>=23.0",
+    "ruff>=0.1",
+]
+notebooks = [
+    "jupyter>=1.0",
+    "ipywidgets>=8.0",
+    "plotly>=5.18",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["test"]
+addopts = "-v --tb=short"
+
+[tool.ruff]
+line-length = 100
+select = ["E", "F", "W", "I"]
